@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="utf-8" />
+ <meta http-equiv="x-ua-compatible" content="ie=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <!--
+ <link rel="stylesheet" href="css/base.css">
+ <link rel="icon" href="img/favicon.png">
+ -->
+ <title>Título</title>
+ </head>
+<body>
+
+<h1>The Window Object</h1>
+<h2>The open() and close() Methods</h2>
+
+<button onclick="openWin()">Open "myWindow"</button>
+<button onclick="closeWin()">Close "myWindow"</button>
+
+<script>
+let myWindow;
+
+function openWin() {
+  myWindow = window.open("", "", "width=200,height=100");
+  myWindow.onblur = function() { alert("blur");}
+}
+
+function closeWin() {
+  myWindow.close();
+}
+
+
+window.onblur = function() { alert("blur 2");}
+</script>
+
+</body>
+</html>
+<!-- vi: set shiftwidth=2 tabstop=2 expandtab: -->
