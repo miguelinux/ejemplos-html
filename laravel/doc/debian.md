@@ -31,5 +31,35 @@ php -m | grep mbstring
 php -m | grep openssl
 ```
 
-<!-- vi: set spl=es spell: -->
+Página de prueba
 
+```
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php
+```
+
+## Configurar el servidor MariaDB
+
+Instalación segura:
+```
+sudo mariadb-secure-installation
+```
+
+Ingresamos a la BD:
+```
+mariadb -u root -p
+```
+
+Ejecutamos lo siguiente:
+```sql
+CREATE DATABASE testapp;
+CREATE USER testapp@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON testapp.* TO testapp@localhost;
+FLUSH PRIVILEGES;
+```
+
+Verificamos los permisos del usuario **testapp**
+```sql
+SHOW GRANTS FOR testapp@localhost;
+```
+
+<!-- vi: set spl=es spell: -->
