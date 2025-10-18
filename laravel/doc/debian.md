@@ -62,4 +62,12 @@ Verificamos los permisos del usuario **testapp**
 SHOW GRANTS FOR testapp@localhost;
 ```
 
+## Instalación de Composer
+
+```
+sudo apt install composer
+which composer
+sudo -u www-data composer --version
+```
+
 <!-- vi: set spl=es spell: -->
