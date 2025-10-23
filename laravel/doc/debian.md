@@ -7,7 +7,7 @@ Fuente: https://howtoforge.es/como-instalar-laravel-en-debian-12/
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install apache2 php php-curl php-bcmath php-json php-mysql php-mbstring php-xml php-tokenizer php-zip mariadb-server
+sudo apt install apache2 php php-curl php-bcmath php-json php-mysql php-mbstring php-xml php-tokenizer php-zip mariadb-server php-sqlite3
 ```
 
 Verificar la instalación
@@ -68,6 +68,25 @@ SHOW GRANTS FOR testapp@localhost;
 sudo apt install composer
 which composer
 sudo -u www-data composer --version
+```
+
+## Crear el primer proyecto Laravel
+
+Ir al lugar donde vas a poner el proyecto y compartir el directorio
+con el contenedor
+
+```
+incus-share-this-dir.bash laravel-d12 testapp /var/www/testapp
+
+```
+y dentro del contenedor
+
+```
+sudo mkdir -p /var/www/{.cache,.config}
+sudo chown -R www-data:www-data /var/www/{.cache,.config,testapp}
+
+cd /var/www/testapp/
+sudo -u www-data composer create-project laravel/laravel .
 ```
 
 <!-- vi: set spl=es spell: -->
