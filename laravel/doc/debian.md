@@ -89,4 +89,67 @@ cd /var/www/testapp/
 sudo -u www-data composer create-project laravel/laravel .
 ```
 
+Editar el archivo `.env`
+
+```
+APP_URL=http://testapp.local
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=testapp
+DB_USERNAME=testapp
+DB_PASSWORD=password
+```
+
+Ahora ejecuta el siguiente comando para migrar la base de datos.
+Esto creará tablas para el proyecto Laravel.
+
+```
+sudo -u www-data php artisan migrate
+```
+
+## Configuración del host virtual Apache
+
+Activar el módulo de reescritura en Apache2
+
+```
+sudo a2enmod rewrite
+sudo touch /etc/apache2/sites-available/laravel.conf
+```
+
+Editamos ese archivo con
+```
+<VirtualHost *:80>
+  ServerAdmin webmaster@testapp.local
+  ServerName testapp.local
+  DocumentRoot /var/www/testapp/public
+
+  <Directory /var/www/testapp/public>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Require all granted
+  </Directory>
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+```
+sudo a2ensite laravel.conf
+sudo apachectl configtest
+sudo systemctl restart apache2
+```
+
+## Acceder a Laravel
+
+```
+sudo vim /etc/hosts
+```
+
+```
+192.168.10.15   testapp.local
+```
+
 <!-- vi: set spl=es spell: -->
