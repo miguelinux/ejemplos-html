@@ -44,6 +44,11 @@ Instalación segura:
 sudo mariadb-secure-installation
 ```
 
+```
+grep -r port /etc/mysql
+sudo vim /etc/mysql/mariadb.cnf
+```
+
 Ingresamos a la BD:
 ```
 mariadb -u root -p
