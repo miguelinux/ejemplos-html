@@ -93,6 +93,7 @@ sudo chown -R www-data:www-data /var/www/{.cache,.config,testapp}
 cd /var/www/testapp/
 sudo -u www-data composer create-project laravel/laravel .
 ```
+***Nota:*** Ver el documento `managing_permissions.md`
 
 Editar el archivo `.env`
 
