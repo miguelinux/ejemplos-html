@@ -1,6 +1,6 @@
 # Clonando desde Git
 
-Fuente: https://github.com/miguelinux/ejemplo-laravel.git
+Fuente: 
 
 1. Run `git clone <my-cool-project>`
 2. Run `composer install`

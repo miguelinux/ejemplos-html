@@ -68,7 +68,12 @@ sudo chmod -R 775 storage bootstrap/cache
 
 ```
 
-¿Estás teniendo algún error específico de "Permission denied" o necesitas ayuda para configurar el sistema de archivos (Filesystem) en la nube como AWS S3?
+# Comandos
+```bash
+find storage/ -type d -exec chmod 775 {} \;
+find database/ -type d -exec chmod 775 {} \;
+find bootstrap/ -type d -exec chmod 775 {} \;
+```
 
 <!-- vi: set spl=es spell: -->
 

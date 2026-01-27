@@ -88,7 +88,9 @@ y dentro del contenedor
 
 ```
 sudo mkdir -p /var/www/{.cache,.config}
-sudo chown -R www-data:www-data /var/www/{.cache,.config,testapp}
+sudo chown -R www-data:www-data /var/www/{.cache,.config}
+
+sudo chown -R www-data:www-data /var/www/testapp
 
 cd /var/www/testapp/
 sudo -u www-data composer create-project laravel/laravel .
