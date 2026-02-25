@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Suma de Fracciones</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px; background-color: #f4f7f6; }
+        .container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        .fraccion-input { display: inline-block; vertical-align: middle; }
+        input { display: block; width: 60px; padding: 8px; margin: 5px auto; text-align: center; border: 1px solid #ccc; border-radius: 4px; }
+        .linea { border-top: 2px solid #333; width: 70px; margin: 2px auto; }
+        .operador { display: inline-block; font-size: 24px; margin: 0 15px; vertical-align: middle; }
+        button { margin-top: 20px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #resultado { margin-top: 20px; font-size: 1.2em; color: #333; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Sumadora de Fracciones</h3>
+    
+    <div class="fraccion-input">
+        <input type="number" id="num1" placeholder="n1">
+        <div class="linea"></div>
+        <input type="number" id="den1" placeholder="d1">
+    </div>
+
+    <div class="operador">+</div>
+
+    <div class="fraccion-input">
+        <input type="number" id="num2" placeholder="n2">
+        <div class="linea"></div>
+        <input type="number" id="den2" placeholder="d2">
+    </div>
+
+    <br>
+    <button onclick="sumarFracciones()">Calcular Suma</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    function sumarFracciones() {
+        const a = parseInt(document.getElementById('num1').value);
+        const b = parseInt(document.getElementById('den1').value);
+        const c = parseInt(document.getElementById('num2').value);
+        const d = parseInt(document.getElementById('den2').value);
+
+        if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d)) {
+            alert("Por favor, llena todos los campos");
+            return;
+        }
+
+        if (b === 0 || d === 0) {
+            alert("El denominador no puede ser cero");
+            return;
+        }
+
+        // Aplicamos la fórmula: (a*d + b*c) / (b*d)
+        const numeradorFinal = (a * d) + (b * c);
+        const denominadorFinal = b * d;
+
+        document.getElementById('resultado').innerHTML = 
+            `Resultado: ${numeradorFinal} / ${denominadorFinal}`;
+    }
+</script>
+
+</body>
+</html>
