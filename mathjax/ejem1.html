@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de LaTeX en HTML</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!--
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+-->
+
+
+    
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 40px; color: #333; }
+        .box { border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #fafafa; }
+    </style>
+</head>
+<body>
+
+    <h2>Matemáticas con LaTeX</h2>
+    <div class="box">
+        <p>Puedes escribir fórmulas dentro de una línea de texto usando delimitadores como <code>\( ... \)</code>. 
+           Por ejemplo, la famosa ecuación de Einstein: \( E = mc^2 \).</p>
+
+        <p>O puedes mostrar ecuaciones grandes y centradas usando <code>\[ ... \]</code>:</p>
+        
+        \[ \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \]
+
+        <p>Incluso fórmulas más complejas como la ecuación cuadrática:</p>
+        \[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+    </div>
+
+</body>
+</html>
